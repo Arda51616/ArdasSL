@@ -191,10 +191,19 @@ def main():
     t1.forward(100)
 
 
-    # Added two other character selection
+    uh = tr.Turtle()
+    tr.addshape("at2.gif")
+    uh.shape("at2.gif")
+    uh.penup()
+    uh.forward(200)
+    uh.left(90)
+    uh.forward(240)
 
-    animal1 = str(input("Which character do you want for first player? {Monkey, Cow, Bull or Lion} (answer as monkey, cow, bull, lion)"))
-    
+
+    # Added two other character selection, Monkey and Lion respectively!
+
+    animal1 = str(input("Which character do you want for first player? {Monkey, Cow, Bull or Lion}"))
+    animal1 = animal1.lower()
     
     tr.addshape( animal1 +".gif")
     t0.shape(animal1 +".gif")
@@ -205,6 +214,7 @@ def main():
 
     
     animal2 = str(input("Which character do you want for second player? {Monkey, Cow, Bull or Lion} (answer as monkey, cow, bull, lion)"))
+    animal2 = animal2.lower()
 
     tr.addshape(animal2 +".gif")
     tc.shape(animal2 +".gif")
@@ -219,6 +229,18 @@ def main():
     pos1=0
     pos2=0
 
+    zar = tr.Turtle()
+    zar.penup()
+    zar.forward(-300)
+
+    for i in range(1, 7):
+        tr.addshape(str(i) + ".gif") # Dice is being set here
+
+    winner = tr.Turtle()            # Winning prompt is set here
+    tr.addshape("win.gif")
+    winner.shape("win.gif")
+    winner.ht()
+
     while pos1 < 25 and pos2 < 25:
         
         input("Press Enter to roll dice for player 1!")
@@ -226,6 +248,11 @@ def main():
         print("You roll" + " " + str(pos1r))
         pos1 = pos1 + pos1r 
         print(animal1 + " is at position " + str(pos1))
+
+        zar.shape(str(pos1r)+".gif")
+
+        
+     #   if pos1r > pos1 -  
 
         if pos1 == 5:
             pos1 = 15
@@ -252,6 +279,8 @@ def main():
         pos2 = pos2 + pos2r
         print(animal2 + " is at position " + str(pos2))
 
+        zar.shape(str(pos2r)+".gif")
+
         if pos2 == 5:
             print(animal2 + " used the ladder")
             pos2 = 15
@@ -270,7 +299,21 @@ def main():
         if pos2 == 24:
             print("Uh oh, " + animal2 + " fell down the snake! xO" )
             pos2 = 14
-       
+
+    if pos1 > 24 or pos2 > 24:
+        winner.st()
+        ceap = str(input("Wanna play again? y or n"))
+        ceap = ceap.capitalize()
+        if  ceap == "Y":
+            winner.ht()
+            pos1 = 0
+            pos2 = 0
+        if ceap == "N":
+            exit()
+            
+            
+
+
         
  #   def roll():
         
