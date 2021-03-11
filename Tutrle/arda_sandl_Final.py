@@ -320,8 +320,8 @@ def main():
 
             if pos2 == 5:
                 print(animal2 + " used the ladder")
-                tc.setpos(Xtab[pos2-1],Ytab[pos2-1])
                 pos2 = 15
+                tc.setpos(Xtab[pos2-1],Ytab[pos2-1])
             if pos2 == 8:
                 print("Uh oh, " + animal2 + " fell down the snake! xO" )
                 pos2 = 3
